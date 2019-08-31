@@ -3,6 +3,7 @@ package com.shop.shopstore.action;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.shop.shopstore.action.base.BaseController;
+import com.shop.shopstore.common.constant.ConstantCom;
 import com.shop.shopstore.common.utils.SessionUtils;
 import com.shop.shopstore.obj.GlobalSession;
 import com.shop.shopstore.obj.MsgException;
@@ -50,7 +51,7 @@ public class LoginController extends BaseController {
     public ResponseObj loginOut() {
         httpServletRequest.getSession().removeAttribute(GlobalSession.SESSION_KEY);
         httpServletRequest.getSession().removeAttribute(GlobalSession.TOKEN_KEY);
-        return new ResponseObj().success("true");
+        return new ResponseObj().success(ConstantCom.IS_TRUE);
     }
 
 }
