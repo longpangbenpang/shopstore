@@ -1,0 +1,57 @@
+server:
+  port: 8998
+  servlet:
+    context-path: /shopstore
+    session:
+      timeout: PT5H
+mybatis:
+  type-aliases-package: com.shop.shopstore.model
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    cache-enabled: false
+    map-underscore-to-camel-case: true
+spring:
+  profiles:
+    active: prod
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Chongqing
+  servlet:
+    multipart:
+      enabled: true
+      max-request-size: 20MB
+      max-file-size: 20MB
+  mvc:
+    date-format: yyyy-MM-dd HH:mm:ss
+    favicon:
+      enabled: false
+  datasource:
+    druid:
+      max-active: 500
+      initial-size: 2
+      max-wait: 60000
+      min-idle: 2
+  thymeleaf:
+    enabled: true
+    cache: false
+    suffix: .html
+    prefix: classpath:/templates/
+    check-template-location: true
+    encoding: utf-8
+    mode: HTML
+    servlet:
+      content-type: text/html
+  messages:
+    basename: i18N/t
+logging:
+  config: classpath:config/logback-pay.xml
+  level:
+    com.shop.shopstore.mapper: debug
+http:
+  maxTotal: 400
+  defaultMaxPerRoute: 100
+  connectTimeout: 10000
+  connectionRequestTimeout: 10000
+  socketTimeout: 10000
+  staleConnectionCheckEnabled: true
+
